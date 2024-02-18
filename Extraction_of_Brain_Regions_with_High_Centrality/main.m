@@ -1,8 +1,8 @@
 close all;clear;clc
 p = 60;% p is the number of eignvectors %60
-Graph = Preprocess_data_np_noTransM_01('Data/DataTS-processed.xlsx',p);%Graph包括关于脑连接信息的邻接矩阵，度矩阵，拉普拉斯矩阵及其对应的特征向量矩阵
-m = size(Graph,2);%m是研究对象的数目
-n = size(Graph(1).L,1);%每个研究对象的结点数目
+Graph = Preprocess_data_np_noTransM_01('Data/DataTS-processed.xlsx',p);
+m = size(Graph,2);
+n = size(Graph(1).L,1);
 MST = cell(m+2,1);
 
 SubjectNum=size(Graph,2);
@@ -50,9 +50,9 @@ end
 occurrence_matrix=occurrence_matrix/m;
 b=minspantree(graph(occurrence_matrix~=0));
 % G1 = graph(a.Edges(:,1),a.Edges(:,2));
-adjMatrix1 = full(adjacency(a)); % adjacency(G)返回邻接矩阵的稀疏矩阵
+adjMatrix1 = full(adjacency(a)); 
 % G2 = graph(b.Edges(:,1),b.Edges(:,2));
-adjMatrix2 = full(adjacency(b)); % adjacency(G)返回邻接矩阵的稀疏矩阵
+adjMatrix2 = full(adjacency(b)); 
 save('adjMatrix1.mat','adjMatrix1','-v6')
 save('adjMatrix2.mat','adjMatrix2','-v6')
 adjMatrix3 = adjMatrix1 & adjMatrix2;
