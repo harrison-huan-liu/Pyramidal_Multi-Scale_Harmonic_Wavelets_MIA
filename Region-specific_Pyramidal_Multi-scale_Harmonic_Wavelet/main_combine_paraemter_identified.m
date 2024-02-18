@@ -3,8 +3,8 @@ close all;clear;clc
 load MST
 p = 55;% p is the number of eignvectors %55
 Graph = Preprocess_network_data('Data\DataTS.csv','Data\AD-Data\',p);
-m = size(Graph,2);% m是研究对象的数目
-n = size(Graph(1).L,1);% 每个研究对象的结点数目
+m = size(Graph,2);
+n = size(Graph(1).L,1);
 % CommonNetwork = zeros(n);
 
 %% calculate L_MST
