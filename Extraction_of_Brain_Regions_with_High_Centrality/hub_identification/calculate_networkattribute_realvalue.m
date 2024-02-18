@@ -1,6 +1,6 @@
 function [Betweenness_node,Pagerank_node,Participation_node,Degree_node,Efficiency_local_node,Clustering_coef_node]=calculate_networkattribute_realvalue(Graph)
-m = size(Graph,2);%m是研究对象的数目
-n = size(Graph(1).L,1);%每个研究对象的结点数目
+m = size(Graph,2);
+n = size(Graph(1).L,1);
 
 Amyloid_node_index=[24,98,142,88,122,52,92,136,83,84,12,26,68,8,10];
 Tau_node_index=[24,98,142,136,128,92,111,45,10,56,68,122,8,90,3];
