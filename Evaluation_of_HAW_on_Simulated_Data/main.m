@@ -122,7 +122,7 @@ for repeat = 1:repeat_num
     Phi_ave{repeat,1} = Phi_temp(:,1:60);
     Phi_ave_wavelet{repeat,1} = Phi_ave{repeat,1}(:,1:wavelet_num{repeat,1});
 
-    %% 根据度选择与AD和CN相关的节点和小波
+    %% select node and wavelet according degree
     [node_max{repeat,1},node_max_index{repeat,1}] = maxk(node_degree{repeat,1},node_num_max);
     [node_min{repeat,1},node_min_index{repeat,1}] = mink(node_degree{repeat,1},node_num_max);
     rand_max{repeat,1} = randperm(size(node_max_index{repeat,1},2));
