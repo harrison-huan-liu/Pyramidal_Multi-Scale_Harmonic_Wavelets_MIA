@@ -1,6 +1,6 @@
 close all;clear;clc
 p = 60;% p is the number of eignvectors %60
-Graph = Preprocess_data_np_noTransM_01('Data/DataTS-processed.xlsx',p);
+Graph = Preprocess_data_np_noTransM_01('../Data/DataTS-processed.xlsx',p);
 m = size(Graph,2);
 n = size(Graph(1).L,1);
 MST = cell(m+2,1);

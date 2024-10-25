@@ -2,11 +2,11 @@
 close all;clear;clc
 %% load Brain Connectivity Network and Amyloid Signdata
 p = 55;% p is the number of eignvectors %55
-Graph = Preprocess_network_data('Data\DataTS.csv','Data\AD-Data\',p);
+Graph = Preprocess_network_data('../Data/DataTS.csv','../Data/AD-Data/',p);
 m = size(Graph,2);% m is the number of reasearch sample
 n = size(Graph(1).L,1);% n is the number of node in each reasearch sample
-[AD_amy,CN_amy,EMCI_amy,LMCI_amy,SMC_amy] = Proprocess_original_Amyloid_data('Data\signal_Data\Amyloid_SUVR.xlsx');% Amyloid data
-[AD_tau,CN_tau,EMCI_tau,LMCI_tau,SMC_tau] = Proprocess_original_Tau_data('Data\signal_Data\Tau_SUVR.xlsx');% Tau data
+[AD_amy,CN_amy,EMCI_amy,LMCI_amy,SMC_amy] = Proprocess_original_Amyloid_data('../Data/signal_Data/Amyloid_SUVR.xlsx');% Amyloid data
+[AD_tau,CN_tau,EMCI_tau,LMCI_tau,SMC_tau] = Proprocess_original_Tau_data('../Data/signal_Data/Tau_SUVR.xlsx');% Tau data
 
 %% COUNT THE DEMOGRAPHIC INFORMATION
 [CN_female,CN_male]=count_demographic_information(CN_tau);
@@ -181,4 +181,4 @@ std(Energy_signdata_norm_num_square_tau(1:157))
 std(Energy_signdata_norm_num_square_tau(158:267))
 
 %% Draw picture
-save('results20220703\MST.mat','MST')
+save('results20220703/MST.mat','MST')

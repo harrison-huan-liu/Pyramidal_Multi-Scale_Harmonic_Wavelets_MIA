@@ -1,1 +1,8 @@
+# data, tool, transcripts and some deprecated method
 data/
+node2vec/
+BrainNetViewer_*/
+Transcripts/
+Experiment_on_Major_Revised_Version/
+
+.DS_Store
