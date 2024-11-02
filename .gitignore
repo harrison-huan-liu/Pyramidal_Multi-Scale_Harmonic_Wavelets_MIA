@@ -1,8 +1,19 @@
-# data, tool, transcripts and some deprecated method
-data/
+# data, results, tool, transcripts and some deprecated method
+Data/
+results/
+Deprecated_Method/
 node2vec/
 BrainNetViewer_*/
 Transcripts/
 Experiment_on_Major_Revised_Version/
+Figure_Element_in_Framework/
+Supplementary_Code/
+synthetic_data/
+Related_Paper/
 
 .DS_Store
+
+# report and paper
+*.pdf
+*.pptx
+*.doc

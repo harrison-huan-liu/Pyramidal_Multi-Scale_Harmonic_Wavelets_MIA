@@ -1,7 +1,7 @@
 % close all;clear;clc
 %% load brain connectivity network
 p=55;% p is the number of eignvectors %55
-Graph=Preprocess_network_data('Data\DataTS.csv','Data\AD-Data\',p);
+Graph=Preprocess_network_data('../Data/DataTS.csv','../Data/AD-Data/',p);
 
 %% txt
 destriux_148 = readcell('destriux_148.xlsx');

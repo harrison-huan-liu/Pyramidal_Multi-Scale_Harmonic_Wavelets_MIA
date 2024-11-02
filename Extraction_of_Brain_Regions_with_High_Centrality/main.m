@@ -1,54 +1,9 @@
-close all;clear;clc
-p = 60;% p is the number of eignvectors %60
+
 Graph = Preprocess_data_np_noTransM_01('../Data/DataTS-processed.xlsx',p);
-m = size(Graph,2);
-n = size(Graph(1).L,1);
+
 MST = cell(m+2,1);
 
-SubjectNum=size(Graph,2);
-NodeNum=size(Graph(1).W,1);
-CommonNetwork=zeros(NodeNum);
-for i=1:SubjectNum
-    CommonNetwork=CommonNetwork+Graph(i).W;
-end
-CommonNetwork=CommonNetwork/SubjectNum;
-CommonNetwork(CommonNetwork<0.02)=0;
-CommonNetwork=(CommonNetwork+CommonNetwork')/2;
 
-MST{97}=zeros(148,148);
-com_x = 1;
-while com_x <= n-1
-    [maximum_column,index_column] = max(CommonNetwork,[],1);
-    [maximun,index] = max(maximum_column);
-    CommonNetwork(index_column(index),index) = 0;
-    MST{97}(index_column(index),index) = maximun;
-    MST{97}(index,index_column(index)) = maximun;
-    z = MST{97};
-    for k = 2:size(MST{97}, 1) % ???
-        z = z | (z*MST{97});
-    end
-
-    if any(diag(z))
-        accz = 1;
-    else
-        accz = 0;
-    end
-
-    if accz == 0 %the reason of 0
-        MST{97}(index_column(index),index) = 0;
-        MST{97}(index,index_column(index)) = 0;
-        com_x = com_x-1;
-    end
-    com_x = com_x+1;
-end
-
-a=minspantree(graph(CommonNetwork~=0));
-occurrence_matrix=zeros(148,148);
-for i=1:m
-    occurrence_matrix=occurrence_matrix+full(adjacency(minspantree(graph(Graph(i).W~=0))));
-end
-occurrence_matrix=occurrence_matrix/m;
-b=minspantree(graph(occurrence_matrix~=0));
 % G1 = graph(a.Edges(:,1),a.Edges(:,2));
 adjMatrix1 = full(adjacency(a)); 
 % G2 = graph(b.Edges(:,1),b.Edges(:,2));
