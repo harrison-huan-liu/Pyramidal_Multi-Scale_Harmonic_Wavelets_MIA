@@ -26,7 +26,7 @@ while com_x <= NodeNum-1
     end
     com_x = com_x+1;
 end
-MST_Tree = (MST_Tree+MST_Tree')/2
+MST_Tree = (MST_Tree+MST_Tree')/2;
 
 %% there are two ways to calculate the MST tree: 1. average the network first and then calculate the MST; 2. calculate the MST trees of each network first and then average all the MST trees. In there, we save those two MST tree into adjMatrix1.txt and adjMatrix2.txt respectively, and compare those two matrices in adjMatrix3.txt.
 % adjacency(G) return the sparse matrix of adjacency matrix
@@ -54,6 +54,9 @@ if Test_two_ways_of_calculating_MST
     save ../results/Generate_MST/adjMatrix_a.txt -ascii adjMatrix_a
     save ../results/Generate_MST/adjMatrix_b.txt -ascii adjMatrix_b
     save ../results/Generate_MST/adjMatrix_overlap.txt -ascii adjMatrix_overlap
+
+    save('adjMatrix_a.mat','adjMatrix_a','-v6')
+    save('adjMatrix_b.mat','adjMatrix_b','-v6')
 end
 
 end

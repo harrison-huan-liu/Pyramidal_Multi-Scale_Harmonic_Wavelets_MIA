@@ -4,11 +4,12 @@ select_modules = 3;
 nhub = size(hub_nodes,1);
 region_mask = cell(nhub,select_modules);
 node_idx = cell(nhub,select_modules);
+% node_idx = cell(nhub,2*select_modules-1); % scale: 1,3,5
 node_idx_modules = cell(nhub,select_modules);
 for i = 1:nhub
     node_idx_un = find(CommonNetwork(:,hub_nodes(i)));
     node_idx{i,1} = union(hub_nodes(i),node_idx_un);
-    for k = 1:select_modules-1
+    for k = 1:select_modules-1 % 2*select_modules-2 % scale: 1,3,5
         for j = 1:size(node_idx{i,k})
             node_idx1 = node_idx{i,k}(j);
             node_idx2 = find(CommonNetwork(:,node_idx{i,k}(j)));
@@ -18,7 +19,7 @@ for i = 1:nhub
     end
     
     for l = 1:select_modules
-        node_idx_modules{i,l} = node_idx{i,l};
+        node_idx_modules{i,l} = node_idx{i,l}; % 2*l-1 % scale: 1,3,5
         region_mask{i,l} = zeros(n,n);
         region_mask{i,l}(:,node_idx_modules{i,l}) = CommonNetwork(:,node_idx_modules{i,l});
         region_mask{i,l}(node_idx_modules{i,l},:) = CommonNetwork(node_idx_modules{i,l},:);

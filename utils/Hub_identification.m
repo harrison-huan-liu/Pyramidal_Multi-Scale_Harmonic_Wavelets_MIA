@@ -18,7 +18,7 @@ Pagerank_colmin = min(Pagerank_node);
 Pagerank_colmax = max(Pagerank_node);
 Pagerank = rescale(Pagerank_node,'InputMin',Pagerank_colmin,'InputMax',Pagerank_colmax);
 
-[community_vector,community_statistic] = community_louvain(CommonNetwork);
+[community_vector, community_statistic] = community_louvain(CommonNetwork);
 Participation_coefficient_node = participation_coef(CommonNetwork,community_vector,0);
 Participation_coefficient_colmin = min(Participation_coefficient_node);
 Participation_coefficient_colmax = max(Participation_coefficient_node);

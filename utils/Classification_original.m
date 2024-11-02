@@ -48,6 +48,7 @@ data_double=cell2mat(total_data');
 % % train_num=round(4*Objectnums_reduce/5);
 % % test_num=Objectnums_reduce-train_num;
 % % 
+% % % 取训练样本和测试样本（要保证训练样本不同类别样本数目相同，分层采样）
 % % CN_sample=0;
 % % LMCI_sample=0;
 % % dele=0;
